@@ -1,4 +1,6 @@
-import 'package:final_exam_650710520/introduce_myself/profile_card.dart';
+import 'package:final_exam_650710520/answer1.dart';
+import 'package:final_exam_650710520/answer2.dart';
+//import 'package:final_exam_650710520/introduce_myself/profile_card.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: const ProfileCard(),
+      home: const Answer1(),
     );
   }
 }
