@@ -7,7 +7,7 @@ class ProfileCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("My Profile"),
+          title: const Text("Ready for Exam"),
           backgroundColor: const Color.fromARGB(255, 255, 209, 224),
         ),
         body: Center(
@@ -27,10 +27,10 @@ class ProfileCard extends StatelessWidget {
           child: const Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-             CircleAvatar(
+              CircleAvatar(
+                backgroundImage: AssetImage('5670.PNG'),
                 radius: 40,
-                backgroundImage: NetworkImage(
-                    'https://static1.cbrimages.com/wordpress/wp-content/uploads/2022/12/anya-forger-heh.jpg'),
+                //backgroundImage: NetworkImage('https://static1.cbrimages.com/wordpress/wp-content/uploads/2022/12/anya-forger-heh.jpg'),
               ),
               SizedBox(height: 10),
               Text(
