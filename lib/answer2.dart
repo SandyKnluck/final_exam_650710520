@@ -62,12 +62,12 @@ class _Answer2State extends State<Answer2> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('คำนวนค่าจัดส่ง'),
+          title: const Text('คำนวนค่าจัดส่ง'),
         ),
         body: Form(
             key: _formKey,
             child: Padding(
-              padding: EdgeInsets.all(20),
+              padding: const EdgeInsets.all(20),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -75,7 +75,7 @@ class _Answer2State extends State<Answer2> {
                   const Text(
                     'น้ำหนักสินค้า(กก.):',
                   ),
-                  TextField(
+                  TextFormField(
                     controller: _productWeight,
                     decoration: const InputDecoration(
                       label: Text(
@@ -88,6 +88,15 @@ class _Answer2State extends State<Answer2> {
                       ),
                       // floatingLabelBehavior: FloatingLabelBehavior.never,
                     ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'โปรดระบุน้ำหนักสินค้า(กก.)';
+                      }
+                      if (double.tryParse(value) == null) {
+                        return 'Please enter';
+                      }
+                      return null;
+                    },
                   ),
                   const SizedBox(
                     height: 20,
@@ -109,7 +118,7 @@ class _Answer2State extends State<Answer2> {
                         _selectedItem = value;
                       },
                       validator: (value) =>
-                          value == null ? 'Please select an option' : null,
+                          value == null ? 'โปรดเลือกระยะทาง' : null,
                     ),
                   ),
                   const SizedBox(
@@ -186,13 +195,16 @@ class _Answer2State extends State<Answer2> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            _result,
-                            style: const TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
+                          Container(
+                            margin: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                            child: Text(
+                              _result,
+                              style: const TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          ),
+                          )
                         ],
                       ))
                 ],
